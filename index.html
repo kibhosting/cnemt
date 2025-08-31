@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAPITAL NEMT — Non-Emergency Medical Transportation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    [v-cloak] > * {
+      display: none;
+    }
+    [v-cloak]::before {
+      content: "Loading...";
+      display: block;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 antialiased text-gray-800">
+  <div id="app" v-cloak class="min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <header class="bg-white shadow-md">
+      <nav class="container mx-auto px-4 py-4 md:px-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
+        <a href="/" @click.prevent="changePage('/')" class="text-xl font-bold text-gray-900 mb-2 sm:mb-0">CAPITAL NEMT</a>
+        <ul class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6">
+          <li><a href="/" @click.prevent="changePage('/')" :class="{'text-gray-900 font-semibold': currentPage === 'home', 'text-gray-600': currentPage !== 'home'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Home</a></li>
+          <li><a href="/about" @click.prevent="changePage('/about')" :class="{'text-gray-900 font-semibold': currentPage === 'about', 'text-gray-600': currentPage !== 'about'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">About</a></li>
+          <li><a href="/services" @click.prevent="changePage('/services')" :class="{'text-gray-900 font-semibold': currentPage === 'services', 'text-gray-600': currentPage !== 'services'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Services</a></li>
+          <li><a href="/portfolio" @click.prevent="changePage('/portfolio')" :class="{'text-gray-900 font-semibold': currentPage === 'portfolio', 'text-gray-600': currentPage !== 'portfolio'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Reservations</a></li>
+          <li><a href="/contact" @click.prevent="changePage('/contact')" :class="{'text-gray-900 font-semibold': currentPage === 'contact', 'text-gray-600': currentPage !== 'contact'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8 md:py-16">
+      <!-- home background image (replace path with your image) -->
+      <div v-if="currentPage === 'home'" class="absolute inset-0 -z-10 bg-center bg-cover" style="background-image: url('/homepage.jpg')">
+        <div class="absolute inset-0 bg-black/30"></div>
+      </div>
+      <div :key="currentPage" class="">
+        <div v-if="currentPage === 'home'" id="home-page" class="text-white bg-white rounded-lg p-6 sm:p-8 md:p-12 transition-all duration-500 ease-in-out opacity-80">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">CAPITAL</h1>
+          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3">Non-Emergency medical Transportation</h2>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            We are ready to provide transportation services. Trustworthy and experienced transporters serving San Antonio, Texas.
+          </p>
+          <p class="text-base text-gray-600 mb-2">Operation Hours: 5 a.m. - Last Client Pickup / 7 Days a week</p>
+          <p class="text-base text-gray-600 mb-4">Capital provides door-through-door service.</p>
+          <div class="mt-4">
+            <p class="font-semibold text-gray-900">CALL US NOW</p>
+            <p class="text-lg text-blue-600 font-bold mt-2">210-944-9595<br>210-589-3002</p>
+          </div>
+        </div>
+
+        <div v-if="currentPage === 'about'" id="about-page">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">About</h1>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
+            Care, Compassion, Comfort for your Non-Emergency Medical Transportation Needs
+          </p>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
+            Capital NEMT provides a full spectrum of medical transportation for non-emergency patients. Non-emergency transport care needs vary greatly depending upon patient mobility status. Capital’s communications professionals are readily available for guidance on which transport mode is most appropriate for each patient’s care level.
+          </p>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+            When transportation is unreliable, access to essential healthcare services is reduced, impacting patients negatively. Capital Non-Emergency Medical Transportation is well-equipped to address this issue. We enhance NEMT with advanced technology and a digital network that ensures patients reach the appropriate care when needed.
+          </p>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mt-4">
+            Capital is a growing company specializing in non-emergency medical transportation in San Antonio and its nearby regions. Our main office is located in San Antonio, Texas, and we offer reliable transportation options and practical solutions for every client. Our goal is to ensure a safe, professional, and trustworthy experience for customers from start to finish. We provide dependable transportation for senior citizens, individuals with disabilities, and those scheduled for out-patient procedures. Our services also include wheelchair transportation for special events and transfers to San Antonio International Airport.
+          </p>
+        </div>
+
+        <div v-if="currentPage === 'services'" id="services-page">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Services</h1>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            We provide non-emergency service throughout Atascosa, Bandera, Bexar, Blanco, Comal, Edwards, Frio, Gillespie, Guadalupe, Hays, Karnes, Kendall, Kerr, Kinney, Llano, Mason, Medina, Real, Sutton, Travis, Val Verde, and Williamson. Burnet, Coryell, Lampasas, and San Saba counties. We also offer services throughout all the counties in Texas.
+          </p>
+          <ul class="list-disc ml-5 text-base text-gray-600 space-y-2 mb-3">
+            <li>All drivers are professionally trained in CPR/AED and Defensive Driving.</li>
+            <li>All vehicles are equipped with first-aid kits.</li>
+            <li>We offer a safe and professional service.</li>
+            <li>Our vehicles are climate-controlled and cleaned daily for client comfort.</li>
+            <li>Additional seating for family members/caregivers at no extra charge.</li>
+            <li>Vehicles are equipped with wheelchair ramps; wheelchairs for pickup/drop-off available upon request.</li>
+          </ul>
+          <p class="font-semibold text-gray-800 mt-3">Typical trip types we serve:</p>
+          <ul class="list-disc ml-5 text-base text-gray-600 mt-2">
+            <li>Doctor’s Appointments / Adult Day Care Facilities</li>
+            <li>Dialysis Appointments / Nursing Care Facilities</li>
+            <li>Assisted Living Homes / Pharmacy Trips / Chemotherapy</li>
+            <li>Outpatient Surgery / Family Events / Shopping Trips</li>
+            <li>Airport, Bus, and Train Stations / Special Events and Concerts</li>
+          </ul>
+        </div>
+
+        <div v-if="currentPage === 'portfolio'" id="portfolio-page">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Reservations & Payment</h1>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            Payment: Pick-up fees and mileage charges apply for each transport. Capital accepts major credit cards and cash. Only clients with an approved Capital Agreement will receive invoices for transportation services.
+          </p>
+          <h2 class="text-lg font-semibold text-gray-800 mt-4">How to Make an Inquiry / Reservation</h2>
+          <p class="text-base text-gray-600 mb-3">Please fill out the required information below. A representative will reach out to you to discuss availability, pricing, and the process.</p>
+          <form class="space-y-3 bg-gray-50 p-4 rounded">
+            <p class="font-semibold">Personal Information:</p>
+            <input type="text" placeholder="First Name" class="w-full px-3 py-2 border rounded-md">
+            <input type="text" placeholder="Last Name" class="w-full px-3 py-2 border rounded-md">
+            <input type="email" placeholder="E-mail Address" class="w-full px-3 py-2 border rounded-md">
+            <input type="tel" placeholder="Phone Number" class="w-full px-3 py-2 border rounded-md">
+
+            <p class="font-semibold mt-2">Pick-up Information:</p>
+            <label class="block text-sm"><input type="checkbox"> Will a caregiver accompany you?</label>
+            <label class="block text-sm"><input type="checkbox"> Do you need walking assistance to the van?</label>
+            <label class="block text-sm"><input type="checkbox"> Will this be a wheelchair transport?</label>
+
+            <p class="font-semibold mt-2">Destination Information:</p>
+            <select class="w-full px-3 py-2 border rounded-md">
+              <option>Location Type: ---</option>
+            </select>
+            <input type="text" placeholder="Address" class="w-full px-3 py-2 border rounded-md">
+            <input type="text" placeholder="City" class="w-full px-3 py-2 border rounded-md">
+            <input type="text" placeholder="Zip Code" class="w-full px-3 py-2 border rounded-md">
+            <input type="tel" placeholder="Location Phone number (If applicable)" class="w-full px-3 py-2 border rounded-md">
+            <label class="block text-sm mt-2">Multiple Stops? <input type="radio" name="stops"> Yes <input type="radio" name="stops"> No</label>
+            <label class="block text-sm">Trip Type: <select class="border rounded px-2 py-1"><option>One-way</option><option>Roundtrip</option></select></label>
+            <textarea placeholder="Additional Information" class="w-full px-3 py-2 border rounded-md"></textarea>
+
+            <p class="font-semibold mt-2">Choose Date and Time:</p>
+            <label class="block text-sm">FIRST CHOICE: <input type="date" class="border rounded px-2 py-1"></label>
+            <label class="block text-sm">SECOND CHOICE: <input type="date" class="border rounded px-2 py-1"></label>
+
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Submit Reservation Request</button>
+            <p class="text-sm text-gray-600 mt-2">Business Hours: Mon - Fri: 7:00 am to 6:30 pm • Saturday: By Reservation • Sunday: By Reservation</p>
+          </form>
+        </div>
+
+        <div v-if="currentPage === 'contact'" id="contact-page">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Contact</h1>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">Send a message or call to arrange non-emergency medical transportation.</p>
+          <form class="space-y-3">
+            <input type="text" placeholder="First Name" class="w-full px-4 py-2 border rounded">
+            <input type="text" placeholder="Last Name" class="w-full px-4 py-2 border rounded">
+            <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded">
+            <input type="tel" placeholder="Phone number" class="w-full px-4 py-2 border rounded">
+            <textarea placeholder="Message" rows="4" class="w-full px-4 py-2 border rounded"></textarea>
+            <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">SUBMIT</button>
+          </form>
+          <div class="mt-4 text-sm text-gray-700">
+            <p class="font-semibold">CAPITAL NEMT</p>
+            <p>24846 TWIN ARROWS<br>SAN ANTONIO, TEXAS 78258</p>
+            <p class="mt-2">Email: <span class="text-blue-600">[email protected]</span></p>
+            <p class="mt-1">Phone: 210-944-9595 / 210-589-3002</p>
+            <p class="mt-2">To arrange for your non-emergency medical transportation needs, please call us at 210-589-3002 or 210-944-9595.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md mt-auto">
+      <div class="container mx-auto px-6 py-4 text-center text-gray-600">
+        &copy; 2025 CAPITAL NEMT. All Rights Reserved.
+      </div>
+    </footer>
+
+  </div>
+
+  <script type="module">
+    import { createApp } from 'https://unpkg.com/petite-vue?module'
+
+    const app = createApp({
+    currentPage: 'home',
+    
+    changePage(path) {
+      history.pushState(null, '', path)
+      this.updatePage()
+    },
+    
+    updatePage() {
+      const path = window.location.pathname
+      
+      switch (path) {
+      case '/':
+        this.currentPage = 'home'
+        break
+      case '/about':
+        this.currentPage = 'about'
+        break
+      case '/services':
+        this.currentPage = 'services'
+        break
+      case '/portfolio':
+        this.currentPage = 'portfolio'
+        break
+      case '/contact':
+        this.currentPage = 'contact'
+        break
+      default:
+        this.currentPage = 'home'
+        history.replaceState(null, '', '/')
+        break
+      }
+    }
+    })
+
+    window.addEventListener('popstate', app.updatePage)
+    window.addEventListener('DOMContentLoaded', app.updatePage)
+    
+    app.mount('#app')
+  </script>
+</body>
+</html>
