@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CAPITAL Non-Emergency Medical Transportation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -27,8 +27,8 @@
     <header class="bg-black shadow-md py-4 px-4 sm:px-0">
       <nav class="container mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center">
         <div class="flex items-center justify-between w-full">
-          <a href="/" @click.prevent="changePage('/')" class="text-xl font-bold text-white sm:mb-0">
-            <img src="/logo-header.png" alt="CAPITAL Logo" class="h-10">
+          <a href="" @click.prevent="changePage('')" class="text-xl font-bold text-white sm:mb-0">
+            <img src="logo-header.png" alt="CAPITAL Logo" class="h-10">
           </a>
           <!-- mobile toggle -->
           <button @click="toggleMenu" class="sm:hidden text-white p-2 rounded-md focus:outline-none" aria-label="Toggle menu">
@@ -38,10 +38,10 @@
         </div>
         <!-- nav: hidden on mobile unless menuOpen; always visible (sm:flex) on larger screens -->
         <ul :class="menuOpen ? 'flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6' : 'hidden sm:flex sm:flex-row sm:space-x-4 md:space-x-6'">
-          <li><a href="/about" @click.prevent="changePage('/about')" :class="{'text-white font-semibold': currentPage === 'about', 'text-white': currentPage !== 'about'}" class="hover:text-white transition duration-300 rounded-md py-1">About</a></li>
-          <li><a href="/services" @click.prevent="changePage('/services')" :class="{'text-white font-semibold': currentPage === 'services', 'text-white': currentPage !== 'services'}" class="hover:text-white transition duration-300 rounded-md py-1">Services</a></li>
-          <li><a href="/reservations" @click.prevent="changePage('/reservations')" :class="{'text-white font-semibold': currentPage === 'reservations', 'text-white': currentPage !== 'reservations'}" class="hover:text-white transition duration-300 rounded-md py-1">Reservations</a></li>
-          <li><a href="/contact" @click.prevent="changePage('/contact')" :class="{'text-white font-semibold': currentPage === 'contact', 'text-white': currentPage !== 'contact'}" class="hover:text-white transition duration-300 rounded-md py-1">Contact</a></li>
+          <li><a href="about" @click.prevent="changePage('/about')" :class="{'text-white font-semibold': currentPage === 'about', 'text-white': currentPage !== 'about'}" class="hover:text-white transition duration-300 rounded-md py-1">About</a></li>
+          <li><a href="services" @click.prevent="changePage('/services')" :class="{'text-white font-semibold': currentPage === 'services', 'text-white': currentPage !== 'services'}" class="hover:text-white transition duration-300 rounded-md py-1">Services</a></li>
+          <li><a href="reservations" @click.prevent="changePage('/reservations')" :class="{'text-white font-semibold': currentPage === 'reservations', 'text-white': currentPage !== 'reservations'}" class="hover:text-white transition duration-300 rounded-md py-1">Reservations</a></li>
+          <li><a href="contact" @click.prevent="changePage('/contact')" :class="{'text-white font-semibold': currentPage === 'contact', 'text-white': currentPage !== 'contact'}" class="hover:text-white transition duration-300 rounded-md py-1">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -53,7 +53,7 @@
         <div v-if="currentPage === 'home'" id="home-page">
           <!-- full width image -->
           <div class="w-full">
-            <div class="relative h-[50vh] w-full overflow-hidden bg-center bg-cover" style="background-image: url('/homepage2.jpg')">
+            <div class="relative h-[50vh] w-full overflow-hidden bg-center bg-cover" style="background-image: url('homepage2.jpg')">
               <div class="absolute inset-0 bg-black/30"></div>
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="px-4 py-2 rounded text-center">
