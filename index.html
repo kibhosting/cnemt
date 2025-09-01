@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAPITAL NEMT — Non-Emergency Medical Transportation</title>
+  <title>CAPITAL Non-Emergency Medical Transportation</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
@@ -20,45 +20,68 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 antialiased text-gray-800">
+<body class="antialiased text-gray-800">
   <div id="app" v-cloak class="min-h-screen flex flex-col">
 
     <!-- Navigation -->
-    <header class="bg-white shadow-md">
-      <nav class="container mx-auto px-4 py-4 md:px-6 flex flex-col sm:flex-row sm:justify-between sm:items-center">
-        <a href="/" @click.prevent="changePage('/')" class="text-xl font-bold text-gray-900 mb-2 sm:mb-0">CAPITAL NEMT</a>
-        <ul class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6">
-          <li><a href="/" @click.prevent="changePage('/')" :class="{'text-gray-900 font-semibold': currentPage === 'home', 'text-gray-600': currentPage !== 'home'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Home</a></li>
-          <li><a href="/about" @click.prevent="changePage('/about')" :class="{'text-gray-900 font-semibold': currentPage === 'about', 'text-gray-600': currentPage !== 'about'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">About</a></li>
-          <li><a href="/services" @click.prevent="changePage('/services')" :class="{'text-gray-900 font-semibold': currentPage === 'services', 'text-gray-600': currentPage !== 'services'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Services</a></li>
-          <li><a href="/portfolio" @click.prevent="changePage('/portfolio')" :class="{'text-gray-900 font-semibold': currentPage === 'portfolio', 'text-gray-600': currentPage !== 'portfolio'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Reservations</a></li>
-          <li><a href="/contact" @click.prevent="changePage('/contact')" :class="{'text-gray-900 font-semibold': currentPage === 'contact', 'text-gray-600': currentPage !== 'contact'}" class="hover:text-gray-900 transition duration-300 rounded-md py-1">Contact</a></li>
+    <header class="bg-black shadow-md py-4 px-4 sm:px-0">
+      <nav class="container mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-center">
+        <div class="flex items-center justify-between w-full">
+          <a href="/" @click.prevent="changePage('/')" class="text-xl font-bold text-white sm:mb-0">
+            <img src="/logo-header.png" alt="CAPITAL Logo" class="h-10">
+          </a>
+          <!-- mobile toggle -->
+          <button @click="toggleMenu" class="sm:hidden text-white p-2 rounded-md focus:outline-none" aria-label="Toggle menu">
+            <!-- simple hamburger -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+        <!-- nav: hidden on mobile unless menuOpen; always visible (sm:flex) on larger screens -->
+        <ul :class="menuOpen ? 'flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6' : 'hidden sm:flex sm:flex-row sm:space-x-4 md:space-x-6'">
+          <li><a href="/about" @click.prevent="changePage('/about')" :class="{'text-white font-semibold': currentPage === 'about', 'text-white': currentPage !== 'about'}" class="hover:text-white transition duration-300 rounded-md py-1">About</a></li>
+          <li><a href="/services" @click.prevent="changePage('/services')" :class="{'text-white font-semibold': currentPage === 'services', 'text-white': currentPage !== 'services'}" class="hover:text-white transition duration-300 rounded-md py-1">Services</a></li>
+          <li><a href="/reservations" @click.prevent="changePage('/reservations')" :class="{'text-white font-semibold': currentPage === 'reservations', 'text-white': currentPage !== 'reservations'}" class="hover:text-white transition duration-300 rounded-md py-1">Reservations</a></li>
+          <li><a href="/contact" @click.prevent="changePage('/contact')" :class="{'text-white font-semibold': currentPage === 'contact', 'text-white': currentPage !== 'contact'}" class="hover:text-white transition duration-300 rounded-md py-1">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-8 md:py-16">
-      <!-- home background image (replace path with your image) -->
-      <div v-if="currentPage === 'home'" class="absolute inset-0 -z-10 bg-center bg-cover" style="background-image: url('homepage.jpg')">
-        <div class="absolute inset-0 bg-black/30"></div>
-      </div>
+    <main class="flex-grow px-4 sm:px-0">
       <div :key="currentPage" class="">
-        <div v-if="currentPage === 'home'" id="home-page" class="text-white bg-white rounded-lg p-6 sm:p-8 md:p-12 transition-all duration-500 ease-in-out opacity-80">
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">CAPITAL</h1>
-          <h2 class="text-xl sm:text-2xl font-semibold text-gray-700 mb-3">Non-Emergency medical Transportation</h2>
-          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
-            We are ready to provide transportation services. Trustworthy and experienced transporters serving San Antonio, Texas.
-          </p>
-          <p class="text-base text-gray-600 mb-2">Operation Hours: 5 a.m. - Last Client Pickup / 7 Days a week</p>
-          <p class="text-base text-gray-600 mb-4">Capital provides door-through-door service.</p>
-          <div class="mt-4">
-            <p class="font-semibold text-gray-900">CALL US NOW</p>
-            <p class="text-lg text-blue-600 font-bold mt-2">210-944-9595<br>210-589-3002</p>
+        <!-- Home layout: full-bleed image on top (50vh), content card centered in container below -->
+        <div v-if="currentPage === 'home'" id="home-page">
+          <!-- full width image -->
+          <div class="w-full">
+            <div class="relative h-[50vh] w-full overflow-hidden bg-center bg-cover" style="background-image: url('/homepage2.jpg')">
+              <div class="absolute inset-0 bg-black/30"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="px-4 py-2 rounded text-center">
+                  <h1 class="text-white text-3xl font-bold">CAPITAL<br>Non Emergency Medical Transportation</h1>
+                  <h2 class="font-semibold text-2xl text-white">Safe Rides for Health Needs</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- content card inside container to keep text width constrained -->
+          <div class="container mx-auto px-4">
+            <div class="bg-white rounded-lg p-6 sm:p-8 md:p-12">
+            
+              <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+                We are ready to provide transportation services. Trustworthy and experienced transporters serving San Antonio, Texas.
+              </p>
+              <p class="text-base text-gray-600 mb-2">Operation Hours: 5 a.m. - Last Client Pickup / 7 Days a week</p>
+              <p class="text-base text-gray-600 mb-4">Capital provides door-through-door service.</p>
+              <div class="mt-4">
+                <p class="font-semibold text-gray-900">CALL US NOW</p>
+                <p class="text-lg text-blue-600 font-bold mt-2">210-944-9595<br>210-589-3002</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div v-if="currentPage === 'about'" id="about-page">
+        <div v-if="currentPage === 'about'" id="about-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">About</h1>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
             Care, Compassion, Comfort for your Non-Emergency Medical Transportation Needs
@@ -74,7 +97,7 @@
           </p>
         </div>
 
-        <div v-if="currentPage === 'services'" id="services-page">
+        <div v-if="currentPage === 'services'" id="services-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Services</h1>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
             We provide non-emergency service throughout Atascosa, Bandera, Bexar, Blanco, Comal, Edwards, Frio, Gillespie, Guadalupe, Hays, Karnes, Kendall, Kerr, Kinney, Llano, Mason, Medina, Real, Sutton, Travis, Val Verde, and Williamson. Burnet, Coryell, Lampasas, and San Saba counties. We also offer services throughout all the counties in Texas.
@@ -97,7 +120,7 @@
           </ul>
         </div>
 
-        <div v-if="currentPage === 'portfolio'" id="portfolio-page">
+        <div v-if="currentPage === 'reservations'" id="reservations-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Reservations & Payment</h1>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
             Payment: Pick-up fees and mileage charges apply for each transport. Capital accepts major credit cards and cash. Only clients with an approved Capital Agreement will receive invoices for transportation services.
@@ -137,7 +160,7 @@
           </form>
         </div>
 
-        <div v-if="currentPage === 'contact'" id="contact-page">
+        <div v-if="currentPage === 'contact'" id="contact-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Contact</h1>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">Send a message or call to arrange non-emergency medical transportation.</p>
           <form class="space-y-3">
@@ -162,7 +185,7 @@
     <!-- Footer -->
     <footer class="bg-white shadow-md mt-auto">
       <div class="container mx-auto px-6 py-4 text-center text-gray-600">
-        &copy; 2025 CAPITAL NEMT. All Rights Reserved.
+        &copy; 2025 CAPITAL Non Emergency Medical Transportation. All Rights Reserved.
       </div>
     </footer>
 
@@ -171,45 +194,69 @@
   <script type="module">
     import { createApp } from 'https://unpkg.com/petite-vue?module'
 
-    const app = createApp({
-    currentPage: 'home',
-    
-    changePage(path) {
-      history.pushState(null, '', path)
-      this.updatePage()
-    },
-    
-    updatePage() {
-      const path = window.location.pathname
-      
-      switch (path) {
-      case '/':
-        this.currentPage = 'home'
-        break
-      case '/about':
-        this.currentPage = 'about'
-        break
-      case '/services':
-        this.currentPage = 'services'
-        break
-      case '/portfolio':
-        this.currentPage = 'portfolio'
-        break
-      case '/contact':
-        this.currentPage = 'contact'
-        break
-      default:
-        this.currentPage = 'home'
-        history.replaceState(null, '', '/')
-        break
+    const state = {
+      currentPage: 'home',
+      menuOpen: false,
+
+      toggleMenu() {
+        this.menuOpen = !this.menuOpen
+      },
+
+      changePage(path) {
+        this.menuOpen = false
+        const normalized = path.startsWith('/') ? path : '/' + path
+        if (location.protocol === 'file:') {
+          // use hash routing for file:// environment
+          window.location.hash = normalized
+        } else {
+          history.pushState(null, '', normalized)
+        }
+        this.updatePage()
+      },
+
+      updatePage() {
+        // support both normal pathname routing and hash routing (for file://)
+        const raw = (location.protocol === 'file:')
+          ? (window.location.hash.replace(/^#/, '') || '/')
+          : (window.location.pathname || '/')
+
+        switch (raw) {
+          case '/':
+            this.currentPage = 'home'
+            break
+          case '/about':
+            this.currentPage = 'about'
+            break
+          case '/services':
+            this.currentPage = 'services'
+            break
+          case '/reservations':
+            this.currentPage = 'reservations'
+            break
+          case '/contact':
+            this.currentPage = 'contact'
+            break
+          default:
+            this.currentPage = 'home'
+            if (location.protocol === 'file:') {
+              window.location.hash = '/'
+            } else {
+              history.replaceState(null, '', '/')
+            }
+            break
+        }
       }
     }
-    })
 
-    window.addEventListener('popstate', app.updatePage)
-    window.addEventListener('DOMContentLoaded', app.updatePage)
-    
+    const app = createApp(state)
+
+    // bind handlers to the state so `this` is correct and ensure reload/hash changes set the page
+    window.addEventListener('popstate', state.updatePage.bind(state))
+    window.addEventListener('hashchange', state.updatePage.bind(state))
+    window.addEventListener('DOMContentLoaded', state.updatePage.bind(state))
+    window.addEventListener('load', state.updatePage.bind(state))
+
     app.mount('#app')
   </script>
-</body>
-</html>
+ </body>
+ </html>
