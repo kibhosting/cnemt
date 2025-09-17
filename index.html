@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- search -->
+  <meta name="description" content="CAPITAL Non-Emergency Medical Transportation provides safe and reliable non-emergency medical transportation services in San Antonio, Texas. Our professional drivers are trained to assist patients with various mobility needs, ensuring a comfortable and secure ride to medical appointments, treatments, and other healthcare-related destinations.">
+  <meta name="keywords" content="Non-Emergency Medical Transportation, NEMT, Medical Transport, San Antonio, Texas, Wheelchair Transport, Senior Transportation, Disability Transport, Healthcare Transport, Patient Transport, Safe Medical Rides, Reliable NEMT Services, NEMT Near Me, Affordable Medical Transport, Capital NEMT, Medical Appointment Transport, Non-Emergency Ambulance, Medical Shuttle Service, Accessible Transportation, Medical Travel Assistance">
+  <meta name="author" content="CAPITAL NEMT">
+  
   <title>CAPITAL Non-Emergency Medical Transportation</title>
   <script src="tailwind.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
@@ -42,6 +47,7 @@
           <li><a href="services" @click.prevent="changePage('/services')" :class="{'text-white font-semibold': currentPage === 'services', 'text-white': currentPage !== 'services'}" class="hover:text-white transition duration-300 rounded-md py-1">Services</a></li>
           <li><a href="reservations" @click.prevent="changePage('/reservations')" :class="{'text-white font-semibold': currentPage === 'reservations', 'text-white': currentPage !== 'reservations'}" class="hover:text-white transition duration-300 rounded-md py-1">Reservations</a></li>
           <li><a href="contact" @click.prevent="changePage('/contact')" :class="{'text-white font-semibold': currentPage === 'contact', 'text-white': currentPage !== 'contact'}" class="hover:text-white transition duration-300 rounded-md py-1">Contact</a></li>
+          <li><a href="careers" @click.prevent="changePage('/careers')" :class="{'text-white font-semibold': currentPage === 'careers', 'text-white': currentPage !== 'careers'}" class="hover:text-white transition duration-300 rounded-md py-1">Careers</a></li>
         </ul>
       </nav>
     </header>
@@ -68,10 +74,14 @@
           <div class="container mx-auto px-4">
             <div class="bg-white rounded-lg p-6 sm:p-8 md:p-12">
             
+              <h2 class="text-xl font-extrabold text-gray-900 mb-4 sm:mb-6">
+                We are ready to provide transportation services.
+              </h2>
+                
               <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
-                We are ready to provide transportation services. Trustworthy and experienced transporters serving San Antonio, Texas.
+                Trustworthy and experienced transporters serving San Antonio, Texas.
               </p>
-              <p class="text-base text-gray-600 mb-2">Operation Hours: 5 a.m. - Last Client Pickup / 7 Days a week</p>
+              <p class="text-base text-gray-600 mb-2">Operation Hours: 3 a.m. - Last Client Pickup / 7 Days a week</p>
               <p class="text-base text-gray-600 mb-4">Capital provides door-through-door service.</p>
               <div class="mt-4">
                 <p class="font-semibold text-gray-900">CALL US NOW</p>
@@ -83,9 +93,9 @@
 
         <div v-if="currentPage === 'about'" id="about-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">About</h1>
-          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
+          <h2 class="text-xl font-extrabold text-gray-900 mb-4 sm:mb-6">
             Care, Compassion, Comfort for your Non-Emergency Medical Transportation Needs
-          </p>
+          </h2>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">
             Capital NEMT provides a full spectrum of medical transportation for non-emergency patients. Non-emergency transport care needs vary greatly depending upon patient mobility status. Capital’s communications professionals are readily available for guidance on which transport mode is most appropriate for each patient’s care level.
           </p>
@@ -93,7 +103,7 @@
             When transportation is unreliable, access to essential healthcare services is reduced, impacting patients negatively. Capital Non-Emergency Medical Transportation is well-equipped to address this issue. We enhance NEMT with advanced technology and a digital network that ensures patients reach the appropriate care when needed.
           </p>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mt-4">
-            Capital is a growing company specializing in non-emergency medical transportation in San Antonio and its nearby regions. Our main office is located in San Antonio, Texas, and we offer reliable transportation options and practical solutions for every client. Our goal is to ensure a safe, professional, and trustworthy experience for customers from start to finish. We provide dependable transportation for senior citizens, individuals with disabilities, and those scheduled for out-patient procedures. Our services also include wheelchair transportation for special events and transfers to San Antonio International Airport.
+            Capital is a growing company specializing in non-emergency medical transportation in San Antonio and its nearby regions. <strong>Our main office is located in San Antonio, Texas</strong> and we offer reliable transportation options and practical solutions for every client. Our goal is to ensure a safe, professional, and trustworthy experience for customers from start to finish. We provide dependable transportation for senior citizens, individuals with disabilities, and those scheduled for out-patient procedures. Our services also include wheelchair transportation for special events and transfers to San Antonio International Airport.
           </p>
         </div>
 
@@ -108,42 +118,99 @@
             <li>We offer a safe and professional service.</li>
             <li>Our vehicles are climate-controlled and cleaned daily for client comfort.</li>
             <li>Additional seating for family members/caregivers at no extra charge.</li>
-            <li>Vehicles are equipped with wheelchair ramps; wheelchairs for pickup/drop-off available upon request.</li>
+            <li>Vehicles are equipped with wheelchair ramps</li>
+            <li>Wheelchairs for pickup/drop-off available upon request.</li>
           </ul>
           <p class="font-semibold text-gray-800 mt-3">Typical trip types we serve:</p>
           <ul class="list-disc ml-5 text-base text-gray-600 mt-2">
-            <li>Doctor’s Appointments / Adult Day Care Facilities</li>
-            <li>Dialysis Appointments / Nursing Care Facilities</li>
-            <li>Assisted Living Homes / Pharmacy Trips / Chemotherapy</li>
-            <li>Outpatient Surgery / Family Events / Shopping Trips</li>
-            <li>Airport, Bus, and Train Stations / Special Events and Concerts</li>
+            <li>Doctor’s Appointments - Adult Day Care Facilities</li>
+            <li>Dialysis Appointments
+              <ul class="list-disc ml-5 text-base text-gray-600">
+                <li>Nursing Care Facilities</li>
+                <li>Assisted Living Homes</li>
+              </ul>
+            </li>
+            <li>Pharmacy Trips - Chemotherapy</li>
+            <li>Outpatient Surgery
+              <ul class="list-disc ml-5 text-base text-gray-600">
+                <li>Family Events - Shopping Center Trips</li>
+              </ul>
+            </li>
+            <li>Airport, Bus, and Train Stations</li>
+            <li>Special Events and Concerts</li>
           </ul>
         </div>
 
         <div v-if="currentPage === 'reservations'" id="reservations-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Reservations & Payment</h1>
+          <h2 class="text-lg font-semibold text-gray-800 mt-4">Payment</h2>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
-            Payment: Pick-up fees and mileage charges apply for each transport. Capital accepts major credit cards and cash. Only clients with an approved Capital Agreement will receive invoices for transportation services.
+            Pick-up fees and mileage charges apply for each transport. Capital accepts major credit cards and cash. Only clients with an approved Capital Agreement will receive invoices for transportation services.
           </p>
           <h2 class="text-lg font-semibold text-gray-800 mt-4">How to Make an Inquiry / Reservation</h2>
           <p class="text-base text-gray-600 mb-3">Please fill out the required information below. A representative will reach out to you to discuss availability, pricing, and the process.</p>
           <script src="https://js-na2.hsforms.net/forms/embed/243753924.js" defer></script>
-<div class="hs-form-frame" data-region="na2" data-form-id="437ca8d8-82b3-4a64-9b4f-0f9ef828baae" data-portal-id="243753924"></div>
+          <div class="hs-form-frame" data-region="na2" data-form-id="437ca8d8-82b3-4a64-9b4f-0f9ef828baae" data-portal-id="243753924"></div>
         </div>
 
         <div v-if="currentPage === 'contact'" id="contact-page" class="mx-auto my-7 container">
           <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Contact</h1>
           <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-4">Send a message or call to arrange non-emergency medical transportation.</p>
           <script src="https://js-na2.hsforms.net/forms/embed/243753924.js" defer></script>
-<div class="hs-form-frame" data-region="na2" data-form-id="1892d652-1fd5-428a-8884-f00e4d33f2ec" data-portal-id="243753924"></div>
+          <div class="hs-form-frame" data-region="na2" data-form-id="1892d652-1fd5-428a-8884-f00e4d33f2ec" data-portal-id="243753924"></div>
           </form>
           <div class="mt-4 text-sm text-gray-700">
-            <p class="font-semibold">CAPITAL NEMT</p>
+            <h2 class="text-lg font-semibold text-gray-800 mt-4">CAPITAL NEMT</h2>
             <p>24846 TWIN ARROWS<br>SAN ANTONIO, TEXAS 78258</p>
             <!-- <p class="mt-2">Email: <span class="text-blue-600">[email protected]</span></p> -->
             <p class="mt-1">Phone: 210-944-9595 / 210-589-3002</p>
-            <p class="mt-2">To arrange for your non-emergency medical transportation needs, please call us at 210-589-3002 or 210-944-9595.</p>
+            <h3 class="font-semibold text-gray-800 mt-2">To arrange for your non-emergency medical transportation needs, please call us at 210-589-3002 or 210-944-9595.</h3>
           </div>
+        </div>
+
+        <div v-if="currentPage === 'careers'" id="careers-page" class="mx-auto my-7 container">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 sm:mb-6">Careers</h1>
+          <h2 class="text-lg font-semibold text-gray-800 mt-4">MINIMUM REQUIREMENTS</h2>
+          <ul class="list-disc ml-5 text-base text-gray-600 space-y-2 mb-3">
+            <li>At least 27 years of age or older.</li>
+            <li>High school diploma or general education degree (GED).</li>
+            <li>Possess a valid Texas driver’s license with no traffic violations including suspensions, DUI, and DWI.</li>
+            <li>Must be able to pass drug/alcohol screening.</li>
+            <li>Current CPR / AED certification (Provided in the house), and Defense driving Certificate.</li>
+            <li>Drivers must not have a felony or misdemeanor conviction within seven years prior to the initial hire date.</li>
+            <li>Able to pick up and push at least 50 lbs. Able to push up to 300 lbs. in a wheelchair.</li>
+          </ul>
+          <h2 class="text-lg font-semibold text-gray-800 mt-4">FAQs</h2>
+          <h3 class="text-base font-semibold text-gray-600 mt-2">
+            1. What if I have a cancellation or change?
+          </h3>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            We understand that plans can change and strive to accommodate. Advanced notice is encouraged. For changes or cancellations made 24 hours or more in advance, there is no charge. A fee of $20 applies for cancellations made with less than 24 hours' notice. For cancellations with less than 2 hours' notice or if a vehicle is dispatched and no one is present (no-show), a no-show fee will be charged at half the trip cost for round trips and the full cost for one-way trips.
+          </p>
+          <h3 class="text-base font-semibold text-gray-600 mt-2">
+            2. How far in advance should I schedule my transportation? 
+          </h3>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            Customers can book trips online up to 24 hours in advance. For trips that require scheduling within 24 hours, customers should call to discuss available options. We aim to accommodate trips that are at least 3 hours away. It is important to note that same-day transport services are primarily available for customers with flexible schedules. For specific travel times, advance reservations are highly recommended, as our fleet is frequently booked several days in advance.
+          </p>
+          <h3 class="text-base font-semibold text-gray-600 mt-2">
+            3. When are patient transportation services available?
+          </h3>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            Patient transportation services are available 24 hours a day, 7 days a week. Our drivers can take you anywhere within Bexar County and beyond. Please note that additional fees will apply for after-hour services.
+          </p>
+          <h3 class="text-base font-semibold text-gray-600 mt-2">
+            4. Can I travel in my own wheelchair? 
+          </h3>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            Yes, you can. We encourage you to remain in your manual or electric wheelchair during transport for your comfort.
+          </p>
+          <h3 class="text-base font-semibold text-gray-600 mt-2">
+            5. Do you accept insurance, such as private, Medicaid, or Medicare? 
+          </h3>
+          <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-3">
+            A pre-authorization letter from your insurer is necessary for private insurance, national insurance, and workers’ compensation insurance prior to using our transportation service.
+          </p>
         </div>
       </div>
     </main>
@@ -153,6 +220,10 @@
       <div class="container mx-auto px-6 py-4 text-center text-gray-600">
         &copy; 2025 CAPITAL Non Emergency Medical Transportation. All Rights Reserved.
       </div>
+      <!-- qr code -->
+      <div class="container mx-auto px-6 py-4 text-center text-gray-600">
+        <img src="qrcode.png" alt="QR Code" class="mx-auto h-24 w-24">
+        <p class="mt-2">Scan to visit our website</p>
     </footer>
 
   </div>
@@ -201,6 +272,9 @@
             break
           case '/contact':
             this.currentPage = 'contact'
+            break
+          case '/careers':
+            this.currentPage = 'careers'
             break
           default:
             this.currentPage = 'home'
