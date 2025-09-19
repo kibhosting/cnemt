@@ -23,6 +23,9 @@
       display: block;
       text-align: center;
     }
+    .e-hide {
+      display: none;
+    }
   </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -182,7 +185,7 @@
           <div class="mt-4 text-sm text-gray-700">
             <h2 class="text-lg font-semibold text-gray-800 mt-4">CAPITAL NEMT</h2>
             <p>24846 TWIN ARROWS<br>SAN ANTONIO, TEXAS 78258</p>
-            <!-- <p class="mt-2">Email: <span class="text-blue-600">[email protected]</span></p> -->
+            <p class="mt-2">Email: <span class="text-blue-600"><span class="e-hide">bot</span>info<span>&#64;</span>capital<span>nemt</span><span>&#46;</span>com</span></p>
             <p class="mt-1">Phone: 210-944-9595 / 210-589-3002</p>
             <h3 class="font-semibold text-gray-800 mt-2">To arrange for your non-emergency medical transportation needs, please call us at 210-589-3002 or 210-944-9595.</h3>
           </div>
@@ -267,20 +270,24 @@
       changePage(path) {
         this.menuOpen = false
         const normalized = path.startsWith('/') ? path : '/' + path
-        if (location.protocol === 'file:') {
-          // use hash routing for file:// environment
-          window.location.hash = normalized
-        } else {
-          history.pushState(null, '', normalized)
-        }
+        // Always use hash routing
+        window.location.hash = normalized
         this.updatePage()
       },
 
       updatePage() {
-        // support both normal pathname routing and hash routing (for file://)
-        const raw = (location.protocol === 'file:')
-          ? (window.location.hash.replace(/^#/, '') || '/')
-          : (window.location.pathname || '/')
+        // Get the path from hash, removing the # and ensuring a leading /
+        const raw = window.location.hash.replace(/^#/, '') || '/'
+        
+        // Handle direct links by checking URL parameters
+        const params = new URLSearchParams(window.location.search)
+        const page = params.get('page')
+        if (page) {
+          this.currentPage = page
+          window.location.hash = '/' + page
+          history.replaceState(null, '', window.location.pathname)
+          return
+        }
 
         switch (raw) {
           case '/':
