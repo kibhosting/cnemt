@@ -1,1 +1,1 @@
-http://preview.capitalnemt.com/
+http://capitalnemt.com/
