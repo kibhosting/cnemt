@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Page not found — Redirecting…</title>
+    <style>
+      html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,-apple-system;display:flex;align-items:center;justify-content:center;background:#111;color:#fff}
+      .msg{max-width:36rem;padding:1rem;text-align:center}
+      a{color:#60a5fa}
+    </style>
+    <script>
+      (function () {
+        // Build a redirect to index.html preserving the original path/search/hash in the fragment.
+        // Examples:
+        //  /about            -> /index.html#/about
+        //  /foo/bar?x=1      -> /index.html#/foo/bar?x=1
+        // If index.html is already in the path, normalize to root.
+        var path = location.pathname || '/';
+        if (path.indexOf('/index.html') === 0) path = '/';
+        var target = '/index.html#' + path + (location.search || '') + (location.hash || '');
+        // Use replace to avoid polluting history
+        location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="msg">
+      <h1>Page not found</h1>
+      <p>Redirecting to the app…</p>
+      <p>If you are not redirected automatically, <a id="manual" href="/">click here</a>.</p>
+    </div>
+  </body>
+</html>
